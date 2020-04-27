@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="DotaMax.Views.BBSPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DotaMax.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:models="using:DotaMax.Models.BBSTopic"
+    mc:Ignorable="d"
+    Background="#F4F5F8">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="336"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="92"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="社区" Foreground="Black" FontSize="26" FontWeight="Bold" VerticalAlignment="Bottom" Margin="16,0"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="16,12,0,0">
+                <Image Source="/Assets/Icon/band_icon_max.png" Height="20" Width="20"/>
+                <TextBlock Text="全部话题" FontWeight="Bold" Foreground="#151E27" FontSize="13" CharacterSpacing="48" VerticalAlignment="Center" Margin="0,2,0,0"/>
+            </StackPanel>
+            <ListView Grid.Row="2" ItemsSource="{x:Bind viewModel.TopicsCollection}" IsItemClickEnabled="True" SelectionMode="None"
+                      ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollMode="Enabled" 
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollMode="Disabled"
+                      VerticalAlignment="Center" Margin="8,12,0,0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Child1">
+                        <Grid Width="86" Height="72" Background="#08888888" Margin="-12,0" Padding="8" CornerRadius="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Ellipse Grid.Row="0" HorizontalAlignment="Center" Height="36" Width="36">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{x:Bind pic_url}" Stretch="UniformToFill"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <TextBlock Grid.Row="1" Foreground="Black" FontSize="12" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" Text="{x:Bind name}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="16,12,0,0">
+                <Image Source="/Assets/Icon/band_icon_data.png" Height="20" Width="20"/>
+                <TextBlock Text="帖子列表" FontWeight="Bold" Foreground="#151E27" FontSize="13" CharacterSpacing="48" VerticalAlignment="Center" Margin="0,2,0,0"/>
+            </StackPanel>
+        </Grid>
+        <controls:DropShadowPanel Grid.Column="1" BlurRadius="16">
+            <Rectangle Fill="Black" Width="2" HorizontalAlignment="Left" Opacity="0.7"/>
+        </controls:DropShadowPanel>
+        <Grid Grid.Column="1" Background="#F4F5F8">
+            <Frame x:Name="BBSFrame"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,10 +1,14 @@
-﻿using System;
+﻿using DotaMax.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +29,34 @@ namespace DotaMax
         public MainPage()
         {
             this.InitializeComponent();
+
+            // 设置标题栏样式
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            titleBar.ButtonForegroundColor = Colors.Black;
+            titleBar.ButtonInactiveForegroundColor = Colors.Gray;
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (MenuListView.SelectedIndex)
+            {
+                case 0:
+                    break;
+                case 1:
+                    MainFram.Navigate(typeof(BBSPage));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            MenuListView.SelectedIndex = 1;
         }
     }
 }
