@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#F4F5F8"
+    Background="#e2e6ea"
     Loaded="Page_Loaded">
     <Page.Resources>
         <Style x:Key="MenuListViewItemStyle" TargetType="ListViewItem">

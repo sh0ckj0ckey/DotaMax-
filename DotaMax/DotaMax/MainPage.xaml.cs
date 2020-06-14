@@ -45,6 +45,7 @@ namespace DotaMax
             switch (MenuListView.SelectedIndex)
             {
                 case 0:
+                    MainFram.Navigate(typeof(NewsPage));
                     break;
                 case 1:
                     MainFram.Navigate(typeof(BBSPage));
@@ -56,7 +57,7 @@ namespace DotaMax
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            MenuListView.SelectedIndex = 1;
+            MenuListView.SelectedIndex = 0;
         }
     }
 }

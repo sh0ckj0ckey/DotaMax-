@@ -21,17 +21,17 @@ namespace DotaMax.Views
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class BBSPage : Page
+    public sealed partial class NewsPage : Page
     {
-        public BBSViewModel viewModel = new BBSViewModel();
+        public NewsViewModel viewModel = new NewsViewModel();
 
-        public BBSPage()
+        public NewsPage()
         {
             this.InitializeComponent();
 
             viewModel.InitAction();
 
-            BBSFrame.Navigate(typeof(BlankPage));
+            NewsFrame.Navigate(typeof(BlankPage));
         }
     }
 }

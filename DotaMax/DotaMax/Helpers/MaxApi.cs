@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace DotaMax.Helpers
 {
-    public static class ApiHelper
+    public static class MaxApi
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static async Task<Models.BBSTopic.BBSTopicModel> GetBBSTopics()
         {
             try
@@ -38,6 +42,35 @@ namespace DotaMax.Helpers
                     catch { topics = null; }
                 }
                 return topics;
+            }
+            catch { return null; }
+        }
+
+        public static async Task<Models.MaxNews.MaxNews> GetNews(string gametype, int offset = 0)
+        {
+            try
+            {
+                string url = "https://news.maxjia.com/maxnews/app/list?os_type=web&game_type=" + gametype + "&offset=" + offset + "&limit=20&tag=None";
+                Models.MaxNews.MaxNews news = null;
+                using (HttpClient http = new HttpClient())
+                {
+                    try
+                    {
+                        http.DefaultRequestHeaders.Add("Accept", "application/json, text/plain, */*");
+                        http.DefaultRequestHeaders.Add("Host", "news.maxjia.com");
+                        var response = await http.GetAsync(new Uri(url));
+                        var jsonMessage = await response.Content.ReadAsStringAsync();
+
+                        JsonSerializerSettings jss = new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore,
+                            MissingMemberHandling = MissingMemberHandling.Ignore
+                        };
+                        news = JsonConvert.DeserializeObject<Models.MaxNews.MaxNews>(jsonMessage, jss);
+                    }
+                    catch { news = null; }
+                }
+                return news;
             }
             catch { return null; }
         }

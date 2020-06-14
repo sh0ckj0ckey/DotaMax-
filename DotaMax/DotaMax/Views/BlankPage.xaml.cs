@@ -1,5 +1,4 @@
-﻿using DotaMax.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,17 +20,11 @@ namespace DotaMax.Views
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class BBSPage : Page
+    public sealed partial class BlankPage : Page
     {
-        public BBSViewModel viewModel = new BBSViewModel();
-
-        public BBSPage()
+        public BlankPage()
         {
             this.InitializeComponent();
-
-            viewModel.InitAction();
-
-            BBSFrame.Navigate(typeof(BlankPage));
         }
     }
 }

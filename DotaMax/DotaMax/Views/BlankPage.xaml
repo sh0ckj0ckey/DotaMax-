@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="DotaMax.Views.BlankPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DotaMax.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" RequestedTheme="Light"
+    Background="#F4F5F8">
+
+    <Grid Background="#66e2e6ea">
+        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Assets/Icon/blankicon.png" Height="64" Opacity="0.3"/>
+        <TextBlock Text="玩电竞，用 MAX" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Margin="0,0,0,32" Foreground="#a8a8a8" Opacity="0.5"/>
+    </Grid>
+</Page>

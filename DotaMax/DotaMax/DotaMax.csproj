@@ -119,16 +119,28 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Converter\IntToVisibilityConverter.cs" />
     <Compile Include="Courier.cs" />
-    <Compile Include="Helpers\ApiHelper.cs" />
+    <Compile Include="Helpers\MaxApi.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BBSTopicModel.cs" />
+    <Compile Include="Models\MaxNews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplateSelector\NewsTemplateSelector.cs" />
     <Compile Include="ViewModels\BBSViewModel.cs" />
+    <Compile Include="ViewModels\NewsViewModel.cs" />
     <Compile Include="Views\BBSPage.xaml.cs">
       <DependentUpon>BBSPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlankPage.xaml.cs">
+      <DependentUpon>BlankPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsPage.xaml.cs">
+      <DependentUpon>NewsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -140,13 +152,21 @@
     <Content Include="Assets\Icon\band_icon_data.png" />
     <Content Include="Assets\Icon\band_icon_max.png" />
     <Content Include="Assets\Icon\bbs.png" />
+    <Content Include="Assets\Icon\blankicon.png" />
+    <Content Include="Assets\Icon\defaultImg.png" />
     <Content Include="Assets\Icon\discovery.png" />
+    <Content Include="Assets\Icon\video.png" />
+    <Content Include="Assets\Icon\logo_csgo.png" />
+    <Content Include="Assets\Icon\logo_dota2.png" />
+    <Content Include="Assets\Icon\logo_max.png" />
+    <Content Include="Assets\Icon\read.png" />
     <Content Include="Assets\Icon\testAvatar.JPG" />
     <Content Include="Assets\Icon\nologin.png" />
     <Content Include="Assets\Icon\rb_bbs.png" />
     <Content Include="Assets\Icon\rb_bbs_click.png" />
     <Content Include="Assets\Icon\rb_discovery.png" />
     <Content Include="Assets\Icon\rb_discovery_click.png" />
+    <Content Include="Assets\Icon\time.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -211,6 +231,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\BBSPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlankPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

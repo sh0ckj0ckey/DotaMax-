@@ -8,11 +8,11 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:models="using:DotaMax.Models.BBSTopic"
     mc:Ignorable="d"
-    Background="#F4F5F8">
+    Background="#e2e6ea">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="336"/>
+            <ColumnDefinition Width="388"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
@@ -39,7 +39,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:Child1">
-                        <Grid Width="86" Height="72" Background="#08888888" Margin="-12,0" Padding="8" CornerRadius="4">
+                        <Grid Width="86" Height="72" Background="#60ffffff" Margin="-12,0" Padding="8" CornerRadius="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"/>
                                 <RowDefinition Height="auto"/>
@@ -62,8 +62,8 @@
         <controls:DropShadowPanel Grid.Column="1" BlurRadius="16">
             <Rectangle Fill="Black" Width="2" HorizontalAlignment="Left" Opacity="0.7"/>
         </controls:DropShadowPanel>
-        <Grid Grid.Column="1" Background="#F4F5F8">
-            <Frame x:Name="BBSFrame"/>
+        <Grid Grid.Column="1" Background="#e2e6ea">
+            <Frame x:Name="BBSFrame" Background="#e2e6ea"/>
         </Grid>
     </Grid>
 </Page>

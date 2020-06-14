@@ -14,12 +14,23 @@ namespace DotaMax.ViewModels
             GetBBSTopics();
         }
 
+        /// <summary>
+        /// 获取话题
+        /// </summary>
         private async void GetBBSTopics()
         {
-            var topics = await ApiHelper.GetBBSTopics();
-            foreach (var topic in topics.topics[1].children)
+            if (TopicsCollection.Count <= 0)
             {
-                TopicsCollection.Add(topic);
+                var topics = await MaxApi.GetBBSTopics();
+                if (topics == null)
+                {
+                    // 没有获取到话题
+                    return;
+                }
+                foreach (var topic in topics.topics[1].children)
+                {
+                    TopicsCollection.Add(topic);
+                }
             }
         }
 
